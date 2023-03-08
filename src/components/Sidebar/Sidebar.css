@@ -1,0 +1,121 @@
+*{
+    font-family: 'Montserrat';
+}
+.App{
+    display: flex;
+}
+.container{
+    /*position: fixed;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*background-color: red;*/
+
+    height: 100vh;
+    width: 25vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+
+
+}
+
+.inner-container{
+    width: 80%;
+    height: 95%;
+    /*align-items: start;*/
+    /*flex-direction: column;*/
+    /*padding: 15px;*/
+    /*margin: 10px;*/
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /*backdrop-filter: blur(5.5px);*/
+    border-radius:40px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    flex: 2;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    position: relative;
+    width: 100%;
+    /*display: flex;*/
+    /*position: fixed;*/
+    /*background-color: red;*/
+}
+.sidebar {
+
+    flex: 5;
+
+    /*display: flex;*/
+    /*position: fixed;*/
+    width: 80%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /*backdrop-filter: blur(5.5px);*/
+    border-radius:40px;
+    border: 1px solid rgba( 255, 255, 255, 0.9 );
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 10px;
+
+
+
+
+}
+.bottom-buttons{
+    flex: 5;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: end;
+    box-sizing: border-box;
+    margin-bottom: 10%;
+
+}
+.logoPng{
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 80%;
+}
+.link{
+    width: 80%;
+    height: 3rem;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    box-shadow: 0px 4px 15px 0px rgba(46, 46, 46, 0.2);
+    border-radius:40px;
+
+}
+/*.nav-button:hover {*/
+/*    background: linear-gradient(180deg, #BC78FF 0%, #FF7FFF 100%)!important;*/
+/*    color: #aadd33 !important;*/
+/*}*/
+.nav-button:hover {
+    /* Optional: change initial value of the variables */
+    /* --myColor1: #f64; --myColor2: brown; */
+    /*position: relative;*/
+    /*width: 200px;*/
+    /*height: 150px;*/
+    background-color: rgba(195, 136, 255, 1) !important;
+    color: white !important;
+    transition: 0.2s;
+}
