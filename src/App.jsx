@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Search from './components/Search'
+import Search from './components/Search/Search'
 import BookList from './components/BookList'
 import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
