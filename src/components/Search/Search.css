@@ -1,0 +1,19 @@
+.search-and-login{
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 25vw);
+    height: 100px;
+    /* background-color: aqua; */
+    justify-content: space-around;
+
+}
+
+.search-bar{
+    flex: 3;
+    /* width: 100%; */
+    background-color: red;
+}
+.auth-section{
+    flex: 1;
+    background-color: green;
+}

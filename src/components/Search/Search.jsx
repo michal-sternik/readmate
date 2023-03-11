@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import './Search.css'
 
 const Search = ({setBookList}) => {
 
@@ -21,7 +22,13 @@ const Search = ({setBookList}) => {
   },[searchQuery]);
 
   return (
-    <input type='text' placeholder='Enter book title...' onChange={handleChange} value={searchQuery}></input>
+    // <input type='text' placeholder='Enter book title...' onChange={handleChange} value={searchQuery}></input>
+    <>
+      <div className='search-and-login'>
+        <div className='search-bar'></div>
+        <div className='auth-section'></div>
+      </div>
+    </>
   )
 }
 

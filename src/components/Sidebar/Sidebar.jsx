@@ -3,6 +3,7 @@ import { FaTh, FaUserAlt} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 import Button from '@material-ui/core/Button';
+import {ReactComponent as Icon} from './logo.svg'
 const Sidebar = ({children}) => {
 
     const sidebarNavItems = [
@@ -33,7 +34,8 @@ const Sidebar = ({children}) => {
             <div className='container'>
                 <div className='inner-container'>
                     <div className='logo'>
-                        <img className='logoPng' src={require('./logo.svg')}/>
+                        {/* <img className='logoPng' src='./logo.svg'/> */}
+                        <Icon className='logoPng'/>
                     </div>
                     <div className='sidebar'>
                         {sidebarNavItems.map((item, index) => (
