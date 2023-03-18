@@ -1,0 +1,11 @@
+.book-background{
+    height: 40%;
+    width: 22%;
+    /* position: relative; */
+    left: 435px;
+    top: 260px;
+    border-radius: 40px;
+    background-color: rebeccapurple;
+
+}
+

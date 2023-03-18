@@ -1,4 +1,5 @@
 import React from 'react'
+import './SingleBook.css'
 
 const SingleBook = ({book}) => {
     // let thumbnail = ""
@@ -12,15 +13,21 @@ const SingleBook = ({book}) => {
     //      thumbnail = <img src = {book.volumeInfo.imageLinks.thumbnail} alt="DX"></img>
     // }
     // let thumbnail = book.volumeInfo.imageLinks.thumbnail != 'undefined'? book.volumeInfo.imageLinks.thumbnail : <div>No img cover.</div>
-    let thumbnail = typeof book.volumeInfo.imageLinks === 'undefined'?  <div>No img cover.</div>:<img src={book.volumeInfo.imageLinks.thumbnail} alt="ziema"></img>
+    // let thumbnail = typeof book.volumeInfo.imageLinks === 'undefined'?  <div>No img cover.</div>:<img src={book.volumeInfo.imageLinks.thumbnail} alt="ziema"></img>
   return (
     <>
-        {thumbnail}
+
+      {/* <div className='book-section'> */}
+        <div className='book-background'>
+        </div>
+
+      {/* </div> */}
+        {/* {thumbnail}
         <h1>{book.volumeInfo.title}</h1>
         <h3>{book.volumeInfo.authors}</h3>
         <h4>{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br/>
         <a href={book.volumeInfo.previewLink}><button>More</button></a>
-        <br></br>
+        <br></br> */}
     </>
   )
 }
