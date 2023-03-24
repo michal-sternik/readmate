@@ -1,33 +1,39 @@
 import React from 'react'
 import './SingleBook.css'
-
-const SingleBook = ({book}) => {
-    // let thumbnail = ""
-
-    // if (typeof book.volumeInfo.imageLinks === 'undefined'){ 
-    //     console.log("undefined")
-    //     thumbnail = <div>no img cover.</div>
-    // }
-    // else{       
-    //      console.log(book.volumeInfo.imageLinks.thumbnail)
-    //      thumbnail = <img src = {book.volumeInfo.imageLinks.thumbnail} alt="DX"></img>
-    // }
-    // let thumbnail = book.volumeInfo.imageLinks.thumbnail != 'undefined'? book.volumeInfo.imageLinks.thumbnail : <div>No img cover.</div>
-    // let thumbnail = typeof book.volumeInfo.imageLinks === 'undefined'?  <div>No img cover.</div>:<img src={book.volumeInfo.imageLinks.thumbnail} alt="ziema"></img>
+import Image from '../../static/images/defaultimgcover.jpg';
+import {ReactComponent as Icon} from '../../static/svg/addBook.svg';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+const SingleBook = ({book, typing}) => {
+    const thumbnailSrc = typeof book.volumeInfo.imageLinks === 'undefined'? Image: book.volumeInfo.imageLinks.thumbnail
+    const bookCategory = typeof book.volumeInfo.categories === 'undefined'?  'Other' : book.volumeInfo.categories
   return (
     <>
 
-      {/* <div className='book-section'> */}
         <div className='book-background'>
-        </div>
+                <a href={book.volumeInfo.previewLink}>
+                    <img src={thumbnailSrc} className='book-image'/>
+                </a>
+                <div className='book-info'>
+                    <p className='book-title'>{book.volumeInfo.title}</p>
+                    <p className='book-author'>{book.volumeInfo.authors}</p>
+                    <p className='book-release-date'>{book.volumeInfo.publishedDate}</p>
+                    <div className='type-and-add'>
+                        <div className='book-category-panel'><span className='book-category'>{bookCategory}</span></div>
+                        <Tooltip title="Add this book!" placement="right">
+                            <IconButton
+                                onClick={()=>console.log('test')}
+                                size="small"
+                                sx={{ ml: 2 }}
+                            >
+                                <Icon className='add-book-icon'/>
+                            </IconButton>
+                        </Tooltip>
+                    </div>
 
-      {/* </div> */}
-        {/* {thumbnail}
-        <h1>{book.volumeInfo.title}</h1>
-        <h3>{book.volumeInfo.authors}</h3>
-        <h4>{book.volumeInfo.publisher}<span>{book.volumeInfo.publishedDate}</span></h4><br/>
-        <a href={book.volumeInfo.previewLink}><button>More</button></a>
-        <br></br> */}
+                </div>
+            </div>
+
     </>
   )
 }

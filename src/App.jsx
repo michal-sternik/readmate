@@ -11,18 +11,39 @@ import Explore from './components/Explore'
 const App = () => {
 
     const [bookList, setBookList] = useState([])
+    const [actualPage, changePage] = useState(1)
+    const [typing, setIsTyping] = useState(false)
 
 
-  return (
+    const handlePageChange = (direction) => {
+        changePage(actualPage + direction)
+    }
+    const resetPageNumber = () => {
+        changePage(1)
+    }
+
+
+    return (
     <>
 
         {/*<Search setBookList = {setBookList}/>*/}
         {/*<BookList bookList = {bookList}/>*/}
         <BrowserRouter>
-            <Sidebar setBookList={setBookList}>
+            <Sidebar setBookList={setBookList}
+                     actualPage = {actualPage}
+                     resetPageNumber = {resetPageNumber}
+                     typing = {typing}
+                     setIsTyping = {setIsTyping}
+            >
                 <Routes>
                     <Route path='/' element={<Home/>}/>
-                    <Route path='/explore' element={<Explore bookList={bookList}/>}/>
+                    <Route path='/explore' element={<Explore
+                        handlePageChange = {handlePageChange}
+                        actualPage = {actualPage}
+                        bookList={bookList}
+                        typing = {typing}
+                        />}
+                    />
                     {/*<Route path='/categories' element={<Categories/>}/>*/}
                     {/*<Route path='/calendar' element={<Callendar/>}/>*/}
                 </Routes>

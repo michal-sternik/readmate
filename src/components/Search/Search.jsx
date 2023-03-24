@@ -2,29 +2,73 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import './Search.css'
-
+import Flag from 'react-world-flags'
 import { useNavigate } from 'react-router-dom';
+import MUIToggler from "../MUIToggler/MUIToggler";
 
 
-const Search = ({setBookList}) => {
+const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping}) => {
 
   const [searchQuery, setSearchQuery]  = useState("")
+  const [startIndex, setStartIndex]  = useState(0)
+  const [togglerChecked, setTogglerChecked]  = useState(false)
+
 
   const handleChange = (e) => {
+    console.log(typing)
     setSearchQuery(e.target.value)
+    resetPageNumber()
   }
 
+  const handleTogglerChange = () => {
+    setTogglerChecked(!togglerChecked)
+    resetPageNumber()
+  }
+  const resetToggler = () => {
+    setTogglerChecked(false)
+  }
 
   useEffect(() => {
-    // Update the document title using the browser API
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=6`)
-    .then(data => {
-      setBookList(data.data.items)
+    setStartIndex(actualPage*9 - 9)
+    console.log(`Actual page: ${actualPage}`)
+    if (togglerChecked) {
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=9&startIndex=${startIndex}&langRestrict=pl`)
+          .then(data => {
+                setBookList(data.data.items)
+              }
+          )
     }
+    else {
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=9&startIndex=${startIndex}`)
+          .then(data => {
+                setBookList(data.data.items)
+              }
+          )
+    }
+  }, [actualPage, togglerChecked])
+
+  useEffect(() => {
+    resetToggler()
+    setIsTyping(true)
+    // Update the document title using the browser API
+    const timer = setTimeout(() => {
+
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&maxResults=9&startIndex=${startIndex}`)
+        .then(data => {
+          setBookList(data.data.items)
+        }
       )
+      setIsTyping(false)
+    }, 400)
+    return () => {
+      clearTimeout(timer)
+
+    }
   },[searchQuery]);
 
-  // const whole_bar = document.getElementsByClassName('search-bar')
+
+
+  //styles
   const hidden_input = document.getElementsByClassName('input-options')
   const enter_input = document.getElementsByClassName('enter-input')
   
@@ -40,27 +84,46 @@ const Search = ({setBookList}) => {
     navigate('explore')
   }
 
-
   return (
     // <input type='text' placeholder='Enter book title...' onChange={handleChange} value={searchQuery}></input>
     <>
 
+      <p className='explore'>{typing ? 'Exploring:' : 'Explore:'} </p>
       <div className='search-and-login'>
         <div className='search-bar'>
+
           <div className='enter-input'>
             {/* <input type='text'>Click and start typing ...</input> */}
             <input onChange={handleChange} onClick={handleInputOptionsVisibility} type='text' placeholder='Click and start typing ...' value={searchQuery} />
 
           </div>
           <div className='input-options'>
+            <div className='input-options-background'>
+              <div>only in</div>
+              <Flag code={ 'pl' } height='18' style={{
+                filter: 'drop-shadow(0px 0px 3px #000000)',
+                borderRadius: '8px'
+              }} />
+              <MUIToggler onChange={handleTogglerChange} checked={togglerChecked}sx={{
+                "& .MuiSwitch-switchBase.Mui-checked": {
+                  color: "black"
+                },
+                "& .MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track": {
+                  backgroundColor: '#E9E9EA'
+                },
 
+              }}/>
+            </div>
           </div>
 
         </div>
         <div className='icon-arrow'>
 
-</div>
-        <div className='auth-section'></div>
+      </div>
+        <div className='auth-section'>
+          <div className='login'>LOG IN</div>
+          <div className='sign-in'>SIGN IN</div>
+        </div>
       </div>
     </>
   )

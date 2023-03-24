@@ -2,10 +2,10 @@ import React from 'react';
 import { FaTh, FaUserAlt} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
-import {ReactComponent as Icon} from './logo.svg'
+import {ReactComponent as Icon} from '../../static/svg/logo.svg'
 import CustomButton from '../Button/Button'
 import Search from '../Search/Search';
-const Sidebar = ({setBookList, children}) => {
+const Sidebar = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping, children}) => {
 
     const hidden_input = document.getElementsByClassName('input-options')
     const enter_input = document.getElementsByClassName('enter-input')
@@ -25,7 +25,7 @@ const Sidebar = ({setBookList, children}) => {
             }
         },
         {
-            display: 'Getting Started',
+            display: 'Explore',
             icon: <FaUserAlt/>,
             to: '/explore',
             func: function(){
@@ -35,7 +35,7 @@ const Sidebar = ({setBookList, children}) => {
         {
             display: 'Calendar',
             icon: <FaUserAlt/>,
-            to: '/categories',
+            to: '/calendar',
             func: function(){
             }
 
@@ -43,7 +43,7 @@ const Sidebar = ({setBookList, children}) => {
         {
             display: 'User',
             icon: <FaUserAlt/>,
-            to: '/calendar',
+            to: '/user',
             func: function(){
             }
 
@@ -62,9 +62,6 @@ const Sidebar = ({setBookList, children}) => {
                         {sidebarNavItems.map((item, index) => (
                             <NavLink to={item.to} key={index} className='link' activeClassName='active'>
                                 <CustomButton width='100%' text={item.display} handleClick={item.func}/>
-                                    {/* {item.display} {item.icon} */}
-                                {/*<div className='link_text'></div>*/}
-                                {/*<div className='icon'></div>*/}
                             </NavLink>
                         ))}
                     </div>
@@ -76,7 +73,12 @@ const Sidebar = ({setBookList, children}) => {
                 </div>
             </div>
             <main>
-                <Search setBookList={setBookList}/>
+                <Search setBookList={setBookList}
+                        actualPage = {actualPage}
+                        resetPageNumber = {resetPageNumber}
+                        typing = {typing}
+                        setIsTyping = {setIsTyping}
+                />
                 <div>{children}</div>
             </main>
         </div>

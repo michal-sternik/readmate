@@ -1,16 +1,17 @@
 import { red } from '@mui/material/colors'
-import React from 'react'
+import React, {useState} from 'react'
 import SingleBook from './SingleBook/SingleBook'
+// import Skeletons from 'react-loading-skeleton'
+// import 'react-loading-skeleton/dist/skeleton.css'
+import ExploreSkeleton from "./Skeletons/ExploreSkeleton/ExploreSkeleton";
+const BookList = ({bookList, typing}) => {
 
-const BookList = ({bookList}) => {
-  console.log("XD")
-  console.log(bookList)
 
-  return (
+
+    return (
     <>
-      <div>BookList</div>
       <div className='booklist-section' style={{
-        backgroundColor:'red',
+        // backgroundColor:'red',
         height:'65vh',
         display: 'flex',
         flexDirection: 'row',
@@ -19,17 +20,11 @@ const BookList = ({bookList}) => {
         justifyContent: 'space-around',
         alignItems: 'center',
       }}>
-        {/* {bookList.map(book => <SingleBook key={book.id} book = {book}/>)} */}
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
-        <SingleBook key='1' book = 'xd'/>
+         {typing ?
+             [1,2,3,4,5,6,7,8,9].map((n) => <ExploreSkeleton key={n}/>)
+             :
+             bookList.map(book => <SingleBook key={book.id} book = {book} typing={typing}/>)}
       </div>
-      {/* {console.log("Boklist")} */}
     </>
   )
 }
