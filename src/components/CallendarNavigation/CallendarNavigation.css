@@ -1,0 +1,11 @@
+.callendar-navigation-background{
+    background: #FFFFFF;
+    opacity: 0.9;
+    box-shadow: 0px 4px 24px -10px #000000;
+    border-radius: 40px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
