@@ -3,7 +3,7 @@ import Search from './components/Search/Search'
 import BookList from './components/BookList'
 import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import Sidebar from './components/Sidebar/Sidebar'
 import Explore from './components/Explore'
 

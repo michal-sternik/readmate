@@ -1,0 +1,64 @@
+.statistics-text{
+    font-weight: 400;
+    font-size: 20px;
+    color: #A449FF;
+}
+.progress-bar{
+    background: #FFFFFF;
+    opacity: 0.9;
+    box-shadow: 0px 4px 24px -6px #000000;
+    border-radius: 40px;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+.progress-bar span:nth-child(1){
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    left: 2%;
+    font-weight: 800;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+.progress-bar span:nth-child(3){
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    font-weight: 700;
+    font-size: 25px;
+    color: #A449FF;
+    transform: translateY(130%);
+}
+.progress-bar span{
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    right: 2%;
+    font-weight: 800;
+    font-size: 25px;
+    color: #A449FF;
+}
+.progress-bar-fill{
+    border-radius: 40px;
+    background: linear-gradient(270deg, #FF7FFF -11.45%, #A449FF 100%);
+    height: 100%;
+}
+.progress-bar-pointer{
+    border-left: 3px solid black;
+    height: 80%;
+    position: absolute;
+    transform: translateY(50%);
+}
+@keyframes slide {
+    from {
+        width: var(--from-width);
+    }
+
+    to {
+        width:var(--to-width);
+    }
+}
