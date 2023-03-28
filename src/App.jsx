@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/Home/Home'
 import Sidebar from './components/Sidebar/Sidebar'
 import Explore from './components/Explore'
+import SignIn from "./components/SignIn/SignIn";
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
                         typing = {typing}
                         />}
                     />
+                    <Route path='/sign-in' element={<SignIn/>}/>
                     {/*<Route path='/categories' element={<Categories/>}/>*/}
                     {/*<Route path='/calendar' element={<Callendar/>}/>*/}
                 </Routes>
