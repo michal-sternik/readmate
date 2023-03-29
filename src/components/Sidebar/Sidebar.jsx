@@ -48,6 +48,7 @@ const Sidebar = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping,
             }
 
         },
+
     ]
 
     return (

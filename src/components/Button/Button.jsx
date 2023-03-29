@@ -2,12 +2,14 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 
-const CustomButton = ({width, text, handleClick}) => {
+const CustomButton = ({width, text, handleClick, backgroundColor= "white", color="black",
+
+                      }) => {
   return (
     <Button variant="text" className='nav-button' sx={{
         borderRadius: 50,
-        backgroundColor: "white",
-        color:"black",
+        backgroundColor: {backgroundColor},
+        color:{color},
         width: {width},
         hover: "green",
         fontFamily:'Montserrat',
