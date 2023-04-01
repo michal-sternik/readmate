@@ -7,6 +7,7 @@ import Home from './components/Home/Home'
 import Sidebar from './components/Sidebar/Sidebar'
 import Explore from './components/Explore'
 import SignIn from "./components/SignIn/SignIn";
+import LogIn from "./components/LogIn/LogIn";
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
                         />}
                     />
                     <Route path='/sign-in' element={<SignIn/>}/>
+                    <Route path='/log-in' element={<LogIn/>}/>
                     {/*<Route path='/categories' element={<Categories/>}/>*/}
                     {/*<Route path='/calendar' element={<Callendar/>}/>*/}
                 </Routes>
