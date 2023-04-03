@@ -1,9 +1,6 @@
 .book-background{
     height: 30%;
     width: 30%;
-    /* position: relative; */
-    /*left: 435px;*/
-    /*top: 260px;*/
     background: #FFFFFF;
     opacity: 0.9;
     box-shadow: 0px 4px 24px -6px #000000;
@@ -15,19 +12,22 @@
 
 .book-image{
     height: 100%;
-    width: auto;
+    width: 100%;
     border-radius: 40px;
     transition: 0.3s;
     object-fit: contain;
     box-shadow: 0 0 5px #000000;
-
-    /*width: 100px;*/
-    /*height: 100px;*/
 }
 .book-image:hover{
     scale: 105%;
 }
+.book-image-link{
+    flex: 1;
+    max-width: 30%;
+}
+
 .book-info{
+    flex: 2;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -45,8 +45,10 @@
     font-size: 18px;
     flex: 3;
     display: flex;
-    align-items: center;
-    /*justify-content: center;*/
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    margin-top: 5%;
 
 }
 .book-author{

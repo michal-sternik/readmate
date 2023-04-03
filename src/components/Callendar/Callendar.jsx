@@ -77,7 +77,7 @@ const Callendar = () => {
                 <button>Expand</button>
             </div>
             <div className='callendar-main-section'>
-                {actual7DaysRange.map(day => <SingleCallendarDay date={day}/> )}
+                {actual7DaysRange.map((day, index) => <SingleCallendarDay key={index} date={day}/> )}
                 {/*TODO - single callendar card - actual7DaysRange.map(day => ...)*/}
             </div>
         </div>

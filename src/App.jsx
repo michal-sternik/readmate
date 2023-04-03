@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Explore from './components/Explore'
 import SignIn from "./components/SignIn/SignIn";
 import LogIn from "./components/LogIn/LogIn";
+import AuthProvider from "./context/AuthProvider";
 
 
 const App = () => {
@@ -30,30 +31,32 @@ const App = () => {
 
         {/*<Search setBookList = {setBookList}/>*/}
         {/*<BookList bookList = {bookList}/>*/}
-        <BrowserRouter>
-            <Sidebar setBookList={setBookList}
-                     actualPage = {actualPage}
-                     resetPageNumber = {resetPageNumber}
-                     typing = {typing}
-                     setIsTyping = {setIsTyping}
-            >
-                <Routes>
-                    <Route path='/' element={<Home/>}/>
-                    <Route path='/explore' element={<Explore
-                        handlePageChange = {handlePageChange}
-                        actualPage = {actualPage}
-                        bookList={bookList}
-                        typing = {typing}
-                        />}
-                    />
-                    <Route path='/sign-in' element={<SignIn/>}/>
-                    <Route path='/log-in' element={<LogIn/>}/>
-                    {/*<Route path='/categories' element={<Categories/>}/>*/}
-                    {/*<Route path='/calendar' element={<Callendar/>}/>*/}
-                </Routes>
-            </Sidebar>
+        <AuthProvider>
+            <BrowserRouter>
+                <Sidebar setBookList={setBookList}
+                         actualPage = {actualPage}
+                         resetPageNumber = {resetPageNumber}
+                         typing = {typing}
+                         setIsTyping = {setIsTyping}
+                >
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='/explore' element={<Explore
+                            handlePageChange = {handlePageChange}
+                            actualPage = {actualPage}
+                            bookList={bookList}
+                            typing = {typing}
+                            />}
+                        />
+                        <Route path='/sign-in' element={<SignIn/>}/>
+                        <Route path='/log-in' element={<LogIn/>}/>
+                        {/*<Route path='/categories' element={<Categories/>}/>*/}
+                        {/*<Route path='/calendar' element={<Callendar/>}/>*/}
+                    </Routes>
+                </Sidebar>
 
-        </BrowserRouter>
+            </BrowserRouter>
+        </AuthProvider>
 
 
     </>
