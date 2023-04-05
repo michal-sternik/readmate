@@ -14,6 +14,25 @@ const LogIn = () => {
     const {signInWithEmailAndPassword} = useContext(AuthContext)
     const navigate = useNavigate()
 
+    const mapAuthCodeToMessage = (authCode) => {
+        switch (authCode) {
+            case "Firebase: Error (auth/wrong-password).":
+                return "Password provided is not correct.";
+      
+            case "Firebase: Error (auth/invalid-email).":
+                return "Email provided is invalid.";
+            
+            case "Firebase: Error (auth/user-not-found).":
+                return "User does not exist.";
+
+      
+          // Many more authCode mapping here...
+      
+          default:
+            return "Unsupported error occured.";
+        }
+      }
+
     const handleSubmit = async (e) => {
 
         e.preventDefault()
@@ -22,8 +41,9 @@ const LogIn = () => {
             await signInWithEmailAndPassword(auth, email, password)
                 .then( () => navigate('/') )
                 .catch(err => {
-                    setError(e.message)
-                    console.log("error occured : " + err)
+                    console.log("error occured : " + err.message)
+                    setError(mapAuthCodeToMessage(err.message))
+
                 })
     }
 
@@ -45,6 +65,7 @@ const LogIn = () => {
                             </div>
                         </div>
                         <div className='submit-login'>
+                            <span style={{color: 'red'}}>{error}</span>
                             <CustomButton width='15%' text={'SIGN IN'}
                                           backgroundColor={ "rgba(195, 136, 255, 1)"}
                                           color={'white'}

@@ -47,18 +47,22 @@
     line-height: 7.5vh;
     font-weight: 500;
     font-size: 20px;
+    justify-content: center;
+    background: #FFFFFF;
+    opacity: 0.9;
 }
 
 .login{
-    background: #FFFFFF;
-    opacity: 0.9;
+    /* background: #FFFFFF;
+    opacity: 0.9; */
     border-radius: 40px 0px 0px 40px;
     height: 100%;
     width: 50%;
 
 }
 .sign-in{
-    background: #D7D7D7;    opacity: 0.9;
+    background: #D7D7D7;    
+    opacity: 0.9;
     border-radius: 0px 40px 40px 0px;
     height: 100%;
     width: 50%;

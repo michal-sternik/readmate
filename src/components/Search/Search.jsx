@@ -7,6 +7,9 @@ import {NavLink, useNavigate} from 'react-router-dom';
 import MUIToggler from "../MUIToggler/MUIToggler";
 import CustomButton from "../Button/Button";
 import {AuthContext} from "../../context/AuthProvider";
+import {ReactComponent as Icon} from '../../static/svg/logout.svg';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 
 
 const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping}) => {
@@ -138,7 +141,15 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
               (
               <>
                 <div>{currentUser.email}</div>
-                <button onClick={handleLogout}>logout</button>
+                <Tooltip title="Logout!" placement="right">
+                    <IconButton
+                        onClick={handleLogout}
+                        size="small"
+                        sx={{ ml: 2 }}
+                    >
+                        <Icon />
+                    </IconButton>
+                </Tooltip>
               </>
               )
             :
