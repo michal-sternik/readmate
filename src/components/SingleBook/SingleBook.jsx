@@ -11,7 +11,7 @@ const SingleBook = ({book, typing}) => {
     <>
 
         <div className='book-background'>
-                <a href={book.volumeInfo.previewLink}>
+                <a className='book-image-link' href={book.volumeInfo.previewLink}>
                     <img src={thumbnailSrc} className='book-image'/>
                 </a>
                 <div className='book-info'>

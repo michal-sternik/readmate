@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useContext, useState} from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import './Search.css'
@@ -6,6 +6,7 @@ import Flag from 'react-world-flags'
 import {NavLink, useNavigate} from 'react-router-dom';
 import MUIToggler from "../MUIToggler/MUIToggler";
 import CustomButton from "../Button/Button";
+import {AuthContext} from "../../context/AuthProvider";
 
 
 const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping}) => {
@@ -14,7 +15,20 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
   const [startIndex, setStartIndex]  = useState(0)
   const [togglerChecked, setTogglerChecked]  = useState(false)
 
+  const {currentUser, logout} = useContext(AuthContext)
+  const navigate = useNavigate()
 
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/')
+      console.log("You are logged out")
+    } catch (e){
+      console.log(e.message)
+    }
+
+  }
   const handleChange = (e) => {
     console.log(typing)
     setSearchQuery(e.target.value)
@@ -72,8 +86,6 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
   //styles
   const hidden_input = document.getElementsByClassName('input-options')
   const enter_input = document.getElementsByClassName('enter-input')
-  
-  const navigate = useNavigate();
 
   const handleInputOptionsVisibility = () => {
 
@@ -122,16 +134,30 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
 
       </div>
         <div className='auth-section'>
-          <div className='login'>
-            <NavLink to='/log-in' style={{textDecoration:'none'}}>
-              <div >LOG IN</div>
-            </NavLink>
-          </div>
-          <div className='sign-in'>
-            <NavLink to='/sign-in' style={{textDecoration:'none'}}>
-              <div >SIGN IN</div>
-            </NavLink>
-          </div>
+          {currentUser ?
+              (
+              <>
+                <div>{currentUser.email}</div>
+                <button onClick={handleLogout}>logout</button>
+              </>
+              )
+            :
+              (
+                <>
+                  <div className='login'>
+                    <NavLink to='/log-in' style={{textDecoration:'none'}}>
+                      <div >LOG IN</div>
+                    </NavLink>
+                  </div>
+                  <div className='sign-in'>
+                    <NavLink to='/sign-in' style={{textDecoration:'none'}}>
+                      <div >SIGN IN</div>
+                    </NavLink>
+                  </div>
+                </>
+            )
+          }
+
         </div>
       </div>
     </>
