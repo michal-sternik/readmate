@@ -140,6 +140,7 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
           {currentUser ?
               (
               <>
+                {/* {console.log(currentUser.uid)} */}
                 <div>{currentUser.email}</div>
                 <Tooltip title="Logout!" placement="right">
                     <IconButton

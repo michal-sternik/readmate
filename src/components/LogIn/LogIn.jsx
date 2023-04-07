@@ -29,7 +29,7 @@ const LogIn = () => {
           // Many more authCode mapping here...
       
           default:
-            return "Unsupported error occured.";
+            return "Unsupported error occured (check your internet connection).";
         }
       }
 
