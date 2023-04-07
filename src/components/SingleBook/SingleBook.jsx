@@ -20,7 +20,7 @@ const SingleBook = ({book, typing}) => {
                     <p className='book-release-date'>{book.volumeInfo.publishedDate}</p>
                     <div className='type-and-add'>
                         <div className='book-category-panel'><span className='book-category'>{bookCategory}</span></div>
-                        <Tooltip title="Add this book!" placement="right">
+                        <Tooltip title="Add this book!" >
                             <IconButton
                                 onClick={()=>console.log('test')}
                                 size="small"
