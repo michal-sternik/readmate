@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import BookList from './BookList'
 import Pagination from './Pagination/Pagination'
-import AddBook from './AddBook/AddBook'
+// import AddBook from './AddBook/AddBook'
 
 const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
 
@@ -43,7 +43,7 @@ const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
             {showPagination ? (<Pagination handlePageChange = {handlePageChange} actualPage = {actualPage}/> ) : null}
         </div>
         
-        <AddBook currentBook={currentBook} formVisibility={formVisibility}/>
+        {/*<AddBook currentBook={currentBook} formVisibility={formVisibility}/>*/}
         
 
 
