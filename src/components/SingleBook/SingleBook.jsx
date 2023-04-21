@@ -4,7 +4,7 @@ import Image from '../../static/images/defaultimgcover.jpg';
 import {ReactComponent as Icon} from '../../static/svg/addBook.svg';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-const SingleBook = ({book, typing}) => {
+const SingleBook = ({book, typing, toggleFormVisibility, setCurrentBook}) => {
     const thumbnailSrc = typeof book.volumeInfo.imageLinks === 'undefined'? Image: book.volumeInfo.imageLinks.thumbnail
     const bookCategory = typeof book.volumeInfo.categories === 'undefined'?  'Other' : book.volumeInfo.categories
   return (
@@ -22,7 +22,16 @@ const SingleBook = ({book, typing}) => {
                         <div className='book-category-panel'><span className='book-category'>{bookCategory}</span></div>
                         <Tooltip title="Add this book!" >
                             <IconButton
-                                onClick={()=>console.log('test')}
+                                onClick={() => {
+                                    setCurrentBook({
+                                        "title": `${book.volumeInfo.title}`, 
+                                        "authors": `${book.volumeInfo.authors}`, 
+                                        "publishedDate": `${book.volumeInfo.publishedDate}`,
+                                        "category": {bookCategory},
+                                        "imageLink": {thumbnailSrc}
+                                    })
+                                    toggleFormVisibility()
+                                }}
                                 size="small"
                                 sx={{ ml: 2 }}
                             >
