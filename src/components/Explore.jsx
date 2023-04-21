@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import BookList from './BookList'
 import Pagination from './Pagination/Pagination'
+import AddBook from './AddBook/AddBook'
 
 const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
 
     const [showPagination, setShowPagination] = useState(false)
+    const [currentBook, setCurrentBook] = useState({})
+    const [formVisibility, setFormVisibility] = useState('hidden')
+
 
 
     useEffect(() => {
@@ -14,6 +18,10 @@ const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
         }
     }, [bookList.length])
 
+    const toggleFormVisibility = () => {
+        // console.log("toggleform")
+        formVisibility === 'hidden' ? setFormVisibility('visible') : setFormVisibility('hidden')
+    }
 
 
     return (
@@ -23,7 +31,7 @@ const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
       flexDirection:'column'
     }}>
 
-        <BookList bookList={bookList} typing = {typing}/>
+        <BookList bookList={bookList} typing = {typing} toggleFormVisibility={toggleFormVisibility} setCurrentBook={setCurrentBook}/>
 
         <div className='page-navigation' style={{
           // backgroundColor:'green',
@@ -34,6 +42,11 @@ const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
         }}>
             {showPagination ? (<Pagination handlePageChange = {handlePageChange} actualPage = {actualPage}/> ) : null}
         </div>
+        
+        <AddBook currentBook={currentBook} formVisibility={formVisibility}/>
+        
+
+
 
     </div>
     )
