@@ -5,7 +5,7 @@ import {
     signOut,
     onAuthStateChanged,
 } from 'firebase/auth';
-import {auth} from "../firebase";
+import {auth} from "../firebase/firebase";
 import {useNavigate} from "react-router-dom";
 
 export const AuthContext = React.createContext();

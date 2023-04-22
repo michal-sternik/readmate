@@ -25,7 +25,7 @@
 
 }
 
-.inner-container{
+.innerContainer{
     width: 80%;
     height: 95%;
     /*align-items: start;*/
@@ -78,7 +78,7 @@
 
 
 }
-.bottom-buttons{
+.bottomButtons{
     flex: 2;
     display: flex;
     flex-direction: row;
@@ -110,21 +110,13 @@
     border-radius:40px;
 
 }
+.link :hover{
+    background-color: rgba(195, 136, 255, 1);
+    color: white;
+}
+
 .active button{
     background-color: rgba(195, 136, 255, 1);
     color: white;
 }
-/*.nav-button:hover {*/
-/*    background: linear-gradient(180deg, #BC78FF 0%, #FF7FFF 100%)!important;*/
-/*    color: #aadd33 !important;*/
-/*}*/
-.nav-button:hover {
-    /* Optional: change initial value of the variables */
-    /* --myColor1: #f64; --myColor2: brown; */
-    /*position: relative;*/
-    /*width: 200px;*/
-    /*height: 150px;*/
-    /* background-color: rgba(195, 136, 255, 1);
-    color: white !important;
-    transition: 0.2s; */
-}
+

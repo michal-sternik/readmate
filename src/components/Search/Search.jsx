@@ -1,11 +1,10 @@
 import React, {useContext, useState} from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import './Search.css'
+import styles from './Search.module.css'
 import Flag from 'react-world-flags'
 import {NavLink, useNavigate} from 'react-router-dom';
 import MUIToggler from "../MUIToggler/MUIToggler";
-import CustomButton from "../Button/Button";
 import {AuthContext} from "../../context/AuthProvider";
 import {ReactComponent as Icon} from '../../static/svg/logout.svg';
 import Tooltip from '@mui/material/Tooltip';
@@ -87,8 +86,8 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
 
 
   //styles
-  const hidden_input = document.getElementsByClassName('input-options')
-  const enter_input = document.getElementsByClassName('enter-input')
+  const hidden_input = document.getElementsByClassName(styles.inputOptions)
+  const enter_input = document.getElementsByClassName(styles.enterInput)
 
   const handleInputOptionsVisibility = () => {
 
@@ -104,17 +103,17 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
     // <input type='text' placeholder='Enter book title...' onChange={handleChange} value={searchQuery}></input>
     <>
 
-      <p className='explore'>{typing ? 'Exploring:' : 'Explore:'} </p>
-      <div className='search-and-login'>
-        <div className='search-bar'>
+      <p className={styles.explore}>{typing ? 'Exploring:' : 'Explore:'} </p>
+      <div className={styles.searchAndLogin}>
+        <div className={styles.searchBar}>
 
-          <div className='enter-input'>
+          <div className={styles.enterInput}>
             {/* <input type='text'>Click and start typing ...</input> */}
             <input onChange={handleChange} onClick={handleInputOptionsVisibility} type='text' placeholder='Click and start typing ...' value={searchQuery} />
 
           </div>
-          <div className='input-options'>
-            <div className='input-options-background'>
+          <div className={styles.inputOptions}>
+            <div className={styles.inputOptionsBackground}>
               <div>only in</div>
               <Flag code={ 'pl' } height='18' style={{
                 filter: 'drop-shadow(0px 0px 3px #000000)',
@@ -133,10 +132,8 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
           </div>
 
         </div>
-        <div className='icon-arrow'>
 
-      </div>
-        <div className='auth-section'>
+        <div className={styles.authSection}>
           {currentUser ?
               (
               <>
@@ -156,14 +153,14 @@ const Search = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping})
             :
               (
                 <>
-                  <div className='login'>
+                  <div className={styles.login}>
                     <NavLink to='/log-in' style={{textDecoration:'none'}}>
                       <div >LOG IN</div>
                     </NavLink>
                   </div>
-                  <div className='sign-in'>
-                    <NavLink to='/sign-in' style={{textDecoration:'none'}}>
-                      <div >SIGN IN</div>
+                  <div className={styles.signUp}>
+                    <NavLink to='/sign-up' style={{textDecoration:'none'}}>
+                      <div >SIGN UP</div>
                     </NavLink>
                   </div>
                 </>

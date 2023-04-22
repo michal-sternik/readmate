@@ -1,0 +1,49 @@
+.logInBackground{
+    composes: signUpBackground from '../SignUp/SignUp.module.css';
+}
+
+.logInFormInnerBackground{
+    composes: signUpFormInnerBackground from '../SignUp/SignUp.module.css';
+
+}
+.logInTextHeader{
+    composes: signUpTextHeader from '../SignUp/SignUp.module.css';
+
+}
+.logInText{
+    composes: signUpText from '../SignUp/SignUp.module.css';
+
+}
+.enterInputForm{
+    composes: enterInputForm from '../SignUp/SignUp.module.css';
+
+}
+.enterInputForm input{
+    font-size: 20px;
+    font-weight:bolder;
+    background-image: linear-gradient(
+            90deg,
+            #6100c3 0%,
+            #f91af9 50%,
+            #6100c3 100%
+    );
+
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size:50%;
+
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    opacity: 100%;
+    caret-color: #FF7FFF;
+
+}
+.submitLogin{
+    composes: submitLogin from '../SignUp/SignUp.module.css';
+
+}

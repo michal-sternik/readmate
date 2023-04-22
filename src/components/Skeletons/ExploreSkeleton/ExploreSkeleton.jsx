@@ -1,12 +1,12 @@
 import React from 'react';
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
-import './ExploreSkeleton.css'
+import styles from './ExploreSkeleton.module.css'
 import { Circles } from  'react-loader-spinner'
 const ExploreSkeleton = () => {
     return (
 
-        <div className='book-background-skeleton'>
+        <div className={styles.bookBackgroundSkeleton}>
             <Circles
                 height="80"
                 width="80"

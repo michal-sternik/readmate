@@ -1,5 +1,5 @@
 import React from 'react';
-import './CallendarNavigation.css'
+import styles from './CallendarNavigation.module.css'
 import {ReactComponent as NavIcon} from '../../static/svg/nav-arrow-pink.svg'
 
 
@@ -9,7 +9,7 @@ const CallendarNavigation = ({handleDateChange, dateRange}) => {
 
 
     return (
-        <div className='callendar-navigation-background'>
+        <div className={styles.callendarNavigationBackground}>
             <NavIcon onClick={() => handleDateChange(-1)}
                  style={{
                      width:'20%',

@@ -1,10 +1,10 @@
-.sign-in-background{
+.signUpBackground{
 
     background-color: rgba(255,255,255,0.6);
     box-shadow: 0px 4px 24px -6px #000000;
     border-radius: 40px;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     padding: 1% 2% 2% 2%;
     box-sizing: border-box;
     display: flex;
@@ -12,7 +12,7 @@
 
 
 }
-.sign-in-form-inner-background {
+.signUpFormInnerBackground {
 
     background-color: rgba(255,255,255,0.9);
     box-shadow: 0px 4px 24px -6px #000000;
@@ -27,22 +27,21 @@
     box-sizing: border-box;
     margin-top: 2%;
 }
-.sign-in-text-header{
+.signUpTextHeader{
     font-weight: 500;
     font-size: 26px;
     color: #A449FF;
     padding: 2% 0 0 2%;
 }
-.sign-in-text{
+.signUpText{
     font-weight: 400;
     font-size: 20px;
     color: #A449FF;
     padding-left: 2%;
 
 }
-.enter-input-form{
+.enterInputForm{
 
-    /* border: 1px solid black; */
     border-radius: 40px 40px 40px 40px;
     width: 100%;
     height: 3rem;
@@ -57,7 +56,7 @@
 }
 
 
-.enter-input-form input{
+.enterInputForm input{
     font-size: 20px;
     font-weight:bolder;
     background-image: linear-gradient(
@@ -82,7 +81,7 @@
     caret-color: #FF7FFF;
 
 }
-.submit-login{
+.submitLogin{
     width: 100%;
     display: flex;
     align-items: center;

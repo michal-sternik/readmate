@@ -1,14 +1,15 @@
 import React from 'react';
 import { FaTh, FaUserAlt} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
-import './Sidebar.css'
+import styles from './Sidebar.module.css'
 import {ReactComponent as Icon} from '../../static/svg/logo.svg'
 import CustomButton from '../Button/Button'
 import Search from '../Search/Search';
+import importedStyles from '../Search/Search.module.css'
 const Sidebar = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping, children}) => {
 
-    const hidden_input = document.getElementsByClassName('input-options')
-    const enter_input = document.getElementsByClassName('enter-input')
+    const hidden_input = document.getElementsByClassName(importedStyles.inputOptions)
+    const enter_input = document.getElementsByClassName(importedStyles.enterInput)
     
 
   
@@ -51,22 +52,30 @@ const Sidebar = ({setBookList, actualPage, resetPageNumber, typing, setIsTyping,
 
     ]
 
+    const style = {
+        color: 'red',
+        fontWeight: 'bold',
+        backgroundColor: 'green'
+    }
+
     return (
-        <div className='App'>
-            <div className='container'>
-                <div className='inner-container'>
-                    <div className='logo'>
+        <div className={styles.App}>
+            <div className={styles.container}>
+                <div className={styles.innerContainer}>
+                    <div className={styles.logo}>
                         {/* <img className='logoPng' src='./logo.svg'/> */}
-                        <a href='/'><Icon className='logoPng' /></a>
+                        <a href='/'><Icon className={styles.logoPng} /></a>
                     </div>
-                    <div className='sidebar'>
+                    <div className={styles.sidebar}>
                         {sidebarNavItems.map((item, index) => (
-                            <NavLink to={item.to} key={index} className='link' activeClassName='active'>
+                            <NavLink to={item.to} key={index} className={({ isActive }) =>
+                                isActive ? `${styles.link} ${styles.active}` : styles.link
+                            } activeClassName={styles.active}>
                                 <CustomButton width='100%' text={item.display} handleClick={item.func}/>
                             </NavLink>
                         ))}
                     </div>
-                    <div className='bottom-buttons'>
+                    <div className={styles.bottomButtons}>
                         <CustomButton width='40%' text='DARKMODE'/>
                         <CustomButton width='40%' text='LANGUAGE'/>
 

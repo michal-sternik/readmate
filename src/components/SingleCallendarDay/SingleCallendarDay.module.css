@@ -1,11 +1,11 @@
-.callendar-single-day{
+.callendarSingleDay{
     border-right: 2px solid #D9D9D9;
     width:100%;
     display: flex;
     flex-direction:column;
     align-items:center;
 }
-.callendar-dates{
+.callendarDates{
     border-bottom: 2px solid #D9D9D9;
     width:100%;
     height:15%;
@@ -13,7 +13,7 @@
     justify-content:center;
     display:flex;
 }
-.callendar-single-day:last-child{
+.callendarSingleDay:last-child{
     border-right: none;
     width:100%;
     display: flex;

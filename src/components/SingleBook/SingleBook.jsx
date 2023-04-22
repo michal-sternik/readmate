@@ -1,5 +1,5 @@
 import React from 'react'
-import './SingleBook.css'
+import styles from './SingleBook.module.css'
 import Image from '../../static/images/defaultimgcover.jpg';
 import {ReactComponent as Icon} from '../../static/svg/addBook.svg';
 import Tooltip from '@mui/material/Tooltip';
@@ -10,16 +10,16 @@ const SingleBook = ({book, typing, toggleFormVisibility, setCurrentBook}) => {
   return (
     <>
 
-        <div className='book-background'>
-                <a className='book-image-link' href={book.volumeInfo.previewLink}>
-                    <img src={thumbnailSrc} className='book-image'/>
+        <div className={styles.bookBackground}>
+                <a className={styles.bookImageLink} href={book.volumeInfo.previewLink}>
+                    <img src={thumbnailSrc} className={styles.bookImage}/>
                 </a>
-                <div className='book-info'>
-                    <p className='book-title'>{book.volumeInfo.title}</p>
-                    <p className='book-author'>{book.volumeInfo.authors}</p>
-                    <p className='book-release-date'>{book.volumeInfo.publishedDate}</p>
-                    <div className='type-and-add'>
-                        <div className='book-category-panel'><span className='book-category'>{bookCategory}</span></div>
+                <div className={styles.bookInfo}>
+                    <p className={styles.bookTitle}>{book.volumeInfo.title}</p>
+                    <p className={styles.bookAuthor}>{book.volumeInfo.authors}</p>
+                    <p className={styles.bookReleaseDate}>{book.volumeInfo.publishedDate}</p>
+                    <div className={styles.typeAndAdd}>
+                        <div className={styles.bookCategoryPanel}><span className={styles.bookCategory}>{bookCategory}</span></div>
                         <Tooltip title="Add this book!" >
                             <IconButton
                                 onClick={() => {
@@ -35,7 +35,7 @@ const SingleBook = ({book, typing, toggleFormVisibility, setCurrentBook}) => {
                                 size="small"
                                 sx={{ ml: 2 }}
                             >
-                                <Icon className='add-book-icon'/>
+                                <Icon className={styles.addBookIcon}/>
                             </IconButton>
                         </Tooltip>
                     </div>

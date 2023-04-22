@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
-import './LogIn.css'
+import styles from './LogIn.module.css'
 import CustomButton from "../Button/Button";
 import {AuthContext} from "../../context/AuthProvider";
 import {useNavigate} from "react-router-dom";
-import {auth} from "../../firebase"
+import {auth} from "../../firebase/firebase"
 
 const LogIn = () => {
 
@@ -49,22 +49,22 @@ const LogIn = () => {
 
     return (
         <div>
-            <div className='sign-in-background'>
-                    <div className='sign-in-text-header'>Log in form:</div>
-                    <div className='sign-in-form-inner-background'>
+            <div className={styles.logInBackground}>
+                    <div className={styles.logInTextHeader}>Log in form:</div>
+                    <div className={styles.logInFormInnerBackground}>
                         <div>
-                            <div className='sign-in-text'>Enter your e-mail</div>
-                            <div className='enter-input-form'>
+                            <div className={styles.logInText}>Enter your e-mail</div>
+                            <div className={styles.enterInputForm}>
                                 <input type='text' onChange={(e) => setEmail(e.target.value)} placeholder='example@email.com'  />
                             </div>
                         </div>
                         <div>
-                            <div className='sign-in-text'>Enter password:</div>
-                            <div className='enter-input-form'>
+                            <div className={styles.logInText}>Enter password:</div>
+                            <div className={styles.enterInputForm}>
                                 <input type='password' onChange={(e) => setPassword(e.target.value)} placeholder='********'  />
                             </div>
                         </div>
-                        <div className='submit-login'>
+                        <div className={styles.submitLogin}>
                             <span style={{color: 'red'}}>{error}</span>
                             <CustomButton width='15%' text={'SIGN IN'}
                                           backgroundColor={ "rgba(195, 136, 255, 1)"}
