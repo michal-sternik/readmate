@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './Callendar.css'
+import styles from './Callendar.module.css'
 import CallendarNavigation from "../CallendarNavigation/CallendarNavigation";
 import SingleCallendarDay from "../SingleCallendarDay/SingleCallendarDay";
 const Callendar = () => {
@@ -65,9 +65,9 @@ const Callendar = () => {
     // console.log(inThreeDays)
 
      return (
-        <div className='home-callendar'>
-            <div className='callendar-nav-section'>
-                <div className='callendar-title-and-nav'>
+        <div className={styles.homeCallendar}>
+            <div className={styles.callendarNavSection}>
+                <div className={styles.callendarTitleAndNav}>
                     <span>{month} 2023</span>
                     <CallendarNavigation
                         handleDateChange={handleDateChange}
@@ -76,7 +76,7 @@ const Callendar = () => {
                 </div>
                 <button>Expand</button>
             </div>
-            <div className='callendar-main-section'>
+            <div className={styles.callendarMainSection}>
                 {actual7DaysRange.map((day, index) => <SingleCallendarDay key={index} date={day}/> )}
                 {/*TODO - single callendar card - actual7DaysRange.map(day => ...)*/}
             </div>

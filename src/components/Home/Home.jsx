@@ -1,14 +1,14 @@
 import React from 'react';
 import Search from '../Search/Search'
-import './Home.css'
+import styles from './Home.module.css'
 import ProgressBar from "../ProgressBar/ProgressBar";
 import Callendar from "../Callendar/Callendar";
 
 const Home = () => {
     return (
-        <div className='home-background'>
-            <div className='home-background-text'>Your activity:</div>
-            <div className='home-statistics'>
+        <div className={styles.homeBackground}>
+            <div className={styles.homeBackgroundText}>Your activity:</div>
+            <div className={styles.homeStatistics}>
                 <ProgressBar
                     text='Hours Read:'
                     countFrom={0}
@@ -24,7 +24,7 @@ const Home = () => {
 
 
             </div>
-            <div className='home-background-text'>Track your readings:</div>
+            <div className={styles.homeBackgroundText}>Track your readings:</div>
 
             <Callendar/>
 

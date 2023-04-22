@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import BookList from './BookList'
-import Pagination from './Pagination/Pagination'
+import BookList from '../BookList/BookList'
+import Pagination from '../Pagination/Pagination'
+import styles from './Explore.module.css'
 // import AddBook from './AddBook/AddBook'
 
 const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
@@ -19,27 +20,17 @@ const Explore = ({bookList, actualPage, handlePageChange, typing}) => {
     }, [bookList.length])
 
     const toggleFormVisibility = () => {
-        // console.log("toggleform")
         formVisibility === 'hidden' ? setFormVisibility('visible') : setFormVisibility('hidden')
     }
 
 
     return (
     // <div>Explore</div>
-    <div style={{
-      display:'flex',
-      flexDirection:'column'
-    }}>
+    <div className={styles.exploreTab} >
 
         <BookList bookList={bookList} typing = {typing} toggleFormVisibility={toggleFormVisibility} setCurrentBook={setCurrentBook}/>
 
-        <div className='page-navigation' style={{
-          // backgroundColor:'green',
-          height:'10vh',
-          justifyContent:'end',
-          display:'flex',
-          alignItems:'center'
-        }}>
+        <div className={styles.paginationTab}>
             {showPagination ? (<Pagination handlePageChange = {handlePageChange} actualPage = {actualPage}/> ) : null}
         </div>
         

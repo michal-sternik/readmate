@@ -1,29 +1,29 @@
-.page-section-outer{
+.pageSectionOuter{
     display: flex;
     flex-direction: row;
     width: 16%;
     justify-content: space-between;
 }
-.page-section-outer p{
+.pageSectionOuter p{
     font-weight: 800;
     font-size: 25px;
 }
 
-.prev-icon{
+.prevIcon{
     scale: 0.8;
     cursor: pointer;
     transition: 0.2s;
 }
-.prev-icon:hover {
+.prevIcon:hover {
     scale: 0.85;
 }
 
-.next-icon{
+.nextIcon{
     scale: 0.8;
     cursor: pointer;
     transition: 0.2s;
     rotate: 180deg;
 }
-.next-icon:hover {
+.nextIcon:hover {
     scale: 0.85;
 }

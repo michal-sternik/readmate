@@ -1,0 +1,9 @@
+.booklistSection{
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 27vw);
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}

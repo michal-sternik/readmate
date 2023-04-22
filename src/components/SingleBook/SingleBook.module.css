@@ -1,4 +1,4 @@
-.book-background{
+.bookBackground{
     height: 30%;
     width: 30%;
     background: #FFFFFF;
@@ -10,7 +10,7 @@
 
 }
 
-.book-image{
+.bookImage{
     height: 100%;
     width: 100%;
     border-radius: 40px;
@@ -18,15 +18,15 @@
     object-fit: contain;
     box-shadow: 0 0 5px #000000;
 }
-.book-image:hover{
+.bookImage:hover{
     scale: 105%;
 }
-.book-image-link{
+.bookImage-link{
     flex: 1;
     max-width: 30%;
 }
 
-.book-info{
+.bookInfo{
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -35,12 +35,12 @@
     box-sizing: border-box;
     padding: 10px;
 }
-.book-info *{
+.bookInfo *{
     margin: 0;
     font-family: 'Inter', serif;
 }
 
-.book-title{
+.bookTitle{
     font-weight: 500;
     font-size: 18px;
     flex: 3;
@@ -51,29 +51,29 @@
     margin-top: 5%;
 
 }
-.book-author{
+.bookAuthor{
     font-weight: 200;
     font-size: 12px;
     flex: 1;
 }
-.book-release-date{
+.bookReleaseDate{
     font-weight: 300;
     font-size: 12px;
     flex: 1;
 }
-.type-and-add{
+.typeAndAdd{
     display: flex;
     flex-direction: row;
     flex: 3;
     align-items: center;
 }
-.book-category-panel{
+.bookCategoryPanel{
     width: 75%;
     height: 100%;
     align-items: center;
     display: flex;
 }
-.book-category{
+.bookCategory{
     height: auto;
     /*width: 75%;*/
     background: #E1E1E1;

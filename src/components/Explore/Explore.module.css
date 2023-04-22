@@ -1,0 +1,10 @@
+.exploreTab{
+    display: flex;
+    flex-direction: column;
+}
+.paginationTab{
+    height: 10vh;
+    justify-content: end;
+    display: flex;
+    align-items: center;
+}

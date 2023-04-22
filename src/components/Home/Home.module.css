@@ -1,4 +1,4 @@
-.home-background{
+.homeBackground{
     background: #FFFFFF;
     background-color: rgba(255,255,255,0.6);
     box-shadow: 0px 4px 24px -6px #000000;
@@ -10,7 +10,7 @@
     padding: 1% 2% 2% 2%;
     box-sizing: border-box;
 }
-.home-background-text{
+.homeBackgroundText{
     font-weight: 400;
     font-size: 25px;
     line-height: 37px;
@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
 }
-.home-statistics{
+.homeStatistics{
     background: #FFFFFF;
     opacity: 0.9;
     box-shadow: 0px 4px 24px -6px #000000;
